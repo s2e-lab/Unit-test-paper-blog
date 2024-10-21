@@ -1,9 +1,9 @@
 ---
 layout: ../layouts/Layout.astro
-title: Academic Project Page Template
-description: Simple project page template for your research paper, built with Astro and Tailwind CSS
+title: "Using Large Language Models to Generate JUnit Tests: An Empirical Study"
+description: "Using Large Language Models to Generate JUnit Tests: An Empirical Study" 
 favicon: /favicon.svg
-thumbnail: /screenshot.png
+thumbnail: /EASE2024.png
 ---
 
 import { Image } from "astro:assets";
@@ -24,104 +24,85 @@ import CodeBlock from "../components/CodeBlock.astro";
 export const components = {pre: CodeBlock}
 
 import outside from "../assets/outside.mp4";
-import transformer from "../assets/transformer.webp";
+import infographic from "../assets/ease-2024-infographic.png";
 
 <Header
   title={frontmatter.title}
   authors={[
     {
-      name: "Roman Hauksson",
-      url: "https://roman.technology",
-      institution: "Independent",
-      notes: ["*", "†"],
+      name: "Mohammed Latif Siddiq",
+      url: "https://lsiddiqsunny.github.io/",
+      institution: "University of Notre Dame",
     },
     {
-      name: "Author Two",
-      institution: "Institution Two",
-      notes: ["*", "†"],
+      name: "Joanna C. S. Santos",
+      url: "https://joannacss.github.io/",
+      institution: "University of Notre Dame",
     },
     {
-      name: "Author Three",
-      institution: "Institution Three",
-      notes: ["†"],
+      name: "Ridwanul Hasan Tanvir",
+      institution: "Pennsylvania State University",
     },
     {
-      name: "Author Four",
-      institution: "Institution Four",
+      name: "Noshin Ulfat",
+      institution: "IQVIA Inc.",
+    },
+    {
+      name: "Fahmid Al Rifat",
+      institution: "United International University",
+    },
+    {
+      name: "Vinicius Carvalho Lopes",
+      institution: "University of Notre Dame",
     },
   ]}
-  conference="Conference Name"
-  notes={[
-    {
-      symbol: "*",
-      text: "author note one",
-    },
-    {
-      symbol: "†",
-      text: "author note two",
-    },
-  ]}
+  conference="The 28th International Conference on Evaluation and Assessment in Software Engineering (EASE '24)"
   links={[
     {
       name: "Paper",
-      url: "",
+      url: "https://s2e-lab.github.io/preprints/ease24-preprint.pdf",
       icon: "fa-solid:file-pdf",
     },
     {
       name: "Code",
-      url: "https://github.com/RomanHauksson/academic-project-astro-template",
+      url: "https://github.com/s2e-lab/LLM-Based-Test-Generation-Study",
       icon: "mdi:github",
     },
     {
       name: "arXiv",
-      url: "",
+      url: "https://arxiv.org/abs/2305.00418",
       icon: "academicons:arxiv",
     },
   ]}
   />
 
-<Video source={outside} />
 
 ## Abstract
 
-This is a live demo for a template you can use to create a simple project page for your research paper. See the code for the template and instructions on how to use it yourself [here](https://github.com/RomanHauksson/academic-project-astro-template). It's made with the [Astro web framework](https://astro.build/) and styled with [Tailwind CSS](https://tailwindcss.com/). You write the content in [MDX](https://mdxjs.com/), which enables markdown formatting like **bold** and _italics_ as well as custom components like <SmallCaps>small caps.</SmallCaps>
+A code generation model generates code by taking a prompt from a code comment, existing code, or a combination of both. Although code generation models (e.g., GitHub Copilot) are increasingly being adopted in practice, it is unclear whether they can successfully be used for unit test generation without fine-tuning for a strongly typed language like Java. To fill this gap, we investigated how well three models (Codex, GPT-3.5-Turbo, and StarCoder) can generate unit tests. We used two benchmarks (HumanEval and Evosuite SF110) to investigate the effect of context generation on the unit test generation process. We evaluated the models based on compilation rates, test correctness, test coverage, and test smells. We found that the Codex model achieved above 80% coverage for the HumanEval dataset, but no model had more than 2% coverage for the EvoSuite SF110 benchmark. The generated tests also suffered from test smells, such as Duplicated Asserts and Empty Tests.
 
-## Another section, with a figure
 
-Use the figure component to display images, videos, equations, or any other element, with an optional caption.
+## Infographic
 
 <Figure
-    caption="Diagram of the transformer deep learning architecture."
+    caption="Summary of the paper."
   >
-    <Image src={transformer} alt="alt text" />
+    <Image src={infographic} alt="infographic" />
 </Figure>
 
-## Two columns
-
-Use the two columns component to display two columns of content. In this example, the first column contains a figure with a YouTube video and the second column contains a figure with a custom [React](https://react.dev/) component. By default, they display side by side, but if the screen is narrow enough (for example, on mobile), they're arranged vertically.
-
-<TwoColumns>
-  <Figure slot="left" caption="Take a look at this YouTube video.">
-    <YouTubeVideo videoId="wjZofJX0v4M" />
-  </Figure>
-  <Figure slot="right" caption="Now look at this Gaussian Splat, rendered with a React component.">
-    <Splat client:idle />
-  </Figure>
-</TwoColumns>
-
-## LaTeX
-
-You can also add LaTeX formulas, rendered during the build process using [KaTeX](https://katex.org/) so they're quick to load for visitors of your project page. You can write them inline, like this: <LaTeX inline formula="a^2 + b^2 = c^2" />. Or, you can write them as a block:
-
-<LaTeX formula="\int_a^b f(x) dx" />
 
 ## BibTeX citation
 
 ```
-@misc{roman2024academic,
-  author = "{Roman Hauksson}",
-  title = "Academic Project Page Template",
-  year = "2024",
-  howpublished = "\url{https://research-template.roman.technology}",
+@inproceedings{siddiq2024junit,
+  author={Siddiq, Mohammed Latif and Santos, Joanna C. S. and Tanvir, Ridwanul Hasan and Ulfat, Noshin and Rifat, Fahmid Al and Lopes, Vinicius Carvalho},
+  title={Using Large Language Models to Generate JUnit Tests: An Empirical Study}, 
+  booktitle = {Proceedings of the 28th International Conference on Evaluation and Assessment in Software Engineering},
+  pages = {313–322},
+  numpages = {10},
+  keywords = {junit, large language models, test generation, test smells, unit testing},
+  doi = {10.1145/3661167.3661216}
+  location = {Salerno, Italy},
+  series = {EASE '24}
 }
 ```
